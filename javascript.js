@@ -12,9 +12,9 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() {
-    let answer = prompt("Enter Rock, Paper or Scissors");
-    return answer;
+function getHumanChoice(gamenum) {
+    let answer = prompt(`Game ${gamenum}\nEnter Rock, Paper or Scissors`);
+    return answer === null ? "" : answer;
 }
 
 function playRound(humanChoice, computerChoice) {
@@ -58,7 +58,7 @@ function playRound(humanChoice, computerChoice) {
 
 function playGame() {
     for (let i = 0; i < 5; i++) {
-        const humanSelection = getHumanChoice();
+        const humanSelection = getHumanChoice(i + 1);
         const computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
     }
